@@ -6,7 +6,8 @@
   "indices": [
     {
       "name": "eventdata",
-      "body": "index.json"
+      "body": "index.json",
+      "types": ["doc"]
     }
   ],
   "corpora": [

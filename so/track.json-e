@@ -6,7 +6,8 @@
   "indices": [
     {
       "name": "so",
-      "body": "index.json"
+      "body": "index.json",
+      "types": ["doc"]
     }
   ],
   "corpora": [

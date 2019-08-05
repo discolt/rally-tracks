@@ -6,7 +6,8 @@
   "indices": [
     {
       "name": "sonested",
-      "body": "index.json"
+      "body": "index.json",
+      "types": ["question"]
     }
   ],
   "corpora": [

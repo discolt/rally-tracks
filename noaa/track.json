@@ -6,7 +6,8 @@
   "indices": [
     {
       "name": "weather-data-2016",
-      "body": "index.json"
+      "body": "index.json",
+      "types": ["summary"]
     }
   ],
   "corpora": [

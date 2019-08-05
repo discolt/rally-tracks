@@ -6,7 +6,8 @@
   "indices": [
     {
       "name": "osmgeoshapes",
-      "body": "index.json"
+      "body": "index.json",
+      "types": ["_doc"]
     }
   ],
   "corpora": [

@@ -6,7 +6,8 @@
   "indices": [
     {
       "name": "osmgeopoints",
-      "body": "index.json"
+      "body": "index.json",
+      "types": ["type"]
     }
   ],
   "corpora": [

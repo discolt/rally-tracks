@@ -30,17 +30,6 @@
       "corpora": "http_logs"
     },
     {
-      "name": "update",
-      "operation-type": "bulk",
-      "bulk-size": {{bulk_size | default(5000)}},
-      "ingest-percentage": {{ingest_percentage | default(100)}},
-      "conflicts": "{{conflicts | default('random')}}",
-      "on-conflict": "{{on_conflict | default('update')}}",
-      "conflict-probability": {{conflict_probability | default(25)}},
-      "recency": {{recency | default(0)}},
-      "corpora": "http_logs"
-    },
-    {
       "name": "default",
       "operation-type": "search",
       "index": "logs-*",
@@ -105,32 +94,6 @@
         "query": {
           "match_all": {}
         }
-      }
-    },
-    {
-      "name": "desc_sort_timestamp",
-      "operation-type": "search",
-      "index": "logs-*",
-      "body": {
-        "query": {
-          "match_all": {}
-        },
-        "sort" : [
-          {"@timestamp" : "desc"}
-        ]
-      }
-    },
-    {
-      "name": "asc_sort_timestamp",
-      "operation-type": "search",
-      "index": "logs-*",
-      "body": {
-        "query": {
-          "match_all": {}
-        },
-        "sort" : [
-          {"@timestamp" : "asc"}
-        ]
       }
     },
     {

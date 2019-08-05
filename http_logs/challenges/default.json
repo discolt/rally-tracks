@@ -77,20 +77,6 @@
           "iterations": 200,
           "#COMMENT": "Throughput is considered per request. So we issue one scroll request per second which will retrieve 25 pages",
           "target-throughput": 1
-        },
-        {
-          "operation": "desc_sort_timestamp",
-          "clients": 1,
-          "warmup-iterations": 200,
-          "iterations": 100,
-          "target-throughput": 0.8
-        },
-        {
-          "operation": "asc_sort_timestamp",
-          "clients": 1,
-          "warmup-iterations": 200,
-          "iterations": 100,
-          "target-throughput": 0.8
         }
       ]
     },
@@ -216,54 +202,6 @@
         },
         {
           "operation": "index-append-with-ingest-{{ingest_pipeline | default('baseline')}}-pipeline",
-          "warmup-time-period": 240,
-          "clients": {{bulk_indexing_clients | default(8)}}
-        },
-        {
-          "name": "refresh-after-index",
-          "operation": "refresh",
-          "clients": 1
-        },
-        {
-          "operation": "force-merge",
-          "clients": 1
-        },
-        {
-          "name": "refresh-after-force-merge",
-          "operation": "refresh",
-          "clients": 1
-        }
-      ]
-    },
-    {
-      "name": "update",
-      "schedule": [
-        {
-          "operation": "delete-index"
-        },
-        {
-          "operation": {
-            "operation-type": "create-index",
-            "settings": {%- if index_settings is defined %} {{index_settings | tojson}} {%- else %} {
-              "index.number_of_shards": {{number_of_shards | default(1)}},
-              "index.number_of_replicas": {{number_of_replicas | default(0)}},
-              "index.store.type": "{{store_type | default('fs')}}"
-            }{%- endif %}
-          }
-        },
-        {
-          "name": "check-cluster-health",
-          "operation": {
-            "operation-type": "cluster-health",
-            "index": "logs-*",
-            "request-params": {
-              "wait_for_status": "{{cluster_health | default('green')}}",
-              "wait_for_no_relocating_shards": "true"
-            }
-          }
-        },
-        {
-          "operation": "update",
           "warmup-time-period": 240,
           "clients": {{bulk_indexing_clients | default(8)}}
         },

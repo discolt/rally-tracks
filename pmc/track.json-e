@@ -6,7 +6,8 @@
   "indices": [
     {
       "name": "pmc",
-      "body": "index.json"
+      "body": "index.json",
+      "types": ["articles"]
     }
   ],
   "corpora": [

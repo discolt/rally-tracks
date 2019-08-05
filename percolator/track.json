@@ -6,7 +6,8 @@
   "indices": [
     {
       "name": "queries",
-      "body": "index.json"
+      "body": "index.json",
+      "types": ["content"]
     }
   ],
   "corpora": [
