@@ -1,0 +1,32 @@
+{% import "rally.helpers" as rally with context %}
+{
+  "version": 2,
+  "description": "POIs from Geonames",
+  "data-url": "https://rallybench.oss-cn-shanghai.aliyuncs.com/corpora/geonames",
+  "indices": [
+    {
+      "name": "geonames",
+      "body": "index.json"
+    }
+  ],
+  "corpora": [
+    {
+      "name": "geonames",
+      "base-url": "https://rallybench.oss-cn-shanghai.aliyuncs.com/corpora/geonames",
+      "documents": [
+        {
+          "source-file": "documents-2.json.bz2",
+          "document-count": 11396505,
+          "compressed-bytes": 264698741,
+          "uncompressed-bytes": 3547614383
+        }
+      ]
+    }
+  ],
+  "operations": [
+    {{ rally.collect(parts="operations/*.json") }}
+  ],
+  "challenges": [
+    {{ rally.collect(parts="challenges/*.json") }}
+  ]
+}
